@@ -68,7 +68,7 @@ int main(int argc, const char * argv[]) {
         YKBear *bear = [[YKBear alloc] init];
         
         
-        NSArray *creatures = @[human, runner, biker, swimmer, businessman/*, dog, kangaroo, bear*/]; //v.1
+        NSArray *creatures = @[human, runner, biker, swimmer, businessman, dog, kangaroo, bear]; //v.1
         for (YKHuman *someone in creatures) {
             NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
                                                someone.hight, someone.weight, someone.sex);
