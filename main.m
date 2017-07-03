@@ -83,24 +83,15 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         
-        NSArray *array = [NSArray arrayWithObjects:human, runner, biker, swimmer, businessman, dog, kangaroo, bear, nil]; //v.2
-        for (NSUInteger i = array.count -1; i <= array.count; i--) {
-            YKHuman *someone = [[YKHuman alloc] init];
-            someone = [array objectAtIndex:i];
-            if ([someone isKindOfClass:[YKHuman class]]) {
-                [someone type];
-                NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
-                                                   someone.hight, someone.weight, someone.sex);
-                if ([someone isMemberOfClass:[YKBusinessman class]]) {
-                    NSLog(@"%@, %@", businessman.allTimeBusy, businessman.smallSleepingTime); //why businessman???? if not only him??
-                }
-            }
-            
-            if ([someone isKindOfClass:[YKAnimal class]]) {
-                [someone type];
+        NSArray *animals = [NSArray arrayWithObjects: dog, kangaroo, bear, nil]; //v.2
+        for (NSUInteger i = animals.count -1; i <= animals.count; i--) {
+            YKAnimal *animal = [[YKAnimal alloc] init];
+            animal = [animals objectAtIndex:i];
+            if (animal) {
+                [animal type];
             }
 
-            [someone movement];
+            [animal movement];
         }
 
     }
