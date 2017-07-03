@@ -16,5 +16,6 @@
 @property (nonatomic, strong)   NSString    *sex;
 
 - (void)movement;
+- (void)type;
 
 @end

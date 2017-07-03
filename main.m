@@ -68,7 +68,7 @@ int main(int argc, const char * argv[]) {
         YKBear *bear = [[YKBear alloc] init];
         
         
-        NSArray *creatures = @[human, runner, biker, swimmer, businessman, dog, kangaroo, bear]; //v.1
+        NSArray *creatures = @[human, runner, biker, swimmer, businessman]; //v.1
         for (YKHuman *someone in creatures) {
             NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
                                                someone.hight, someone.weight, someone.sex);
@@ -82,17 +82,24 @@ int main(int argc, const char * argv[]) {
         }
         
         NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        NSArray *array = [NSArray arrayWithObjects:human, runner, biker, swimmer, businessman, nil]; //v.2
+        
+        NSArray *array = [NSArray arrayWithObjects:human, runner, biker, swimmer, businessman, dog, kangaroo, bear, nil]; //v.2
         for (NSUInteger i = array.count -1; i <= array.count; i--) {
             YKHuman *someone = [[YKHuman alloc] init];
             someone = [array objectAtIndex:i];
-            
-            NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
-                  someone.hight, someone.weight, someone.sex);
-            if ([someone isKindOfClass:[YKBusinessman class]]) {
-                NSLog(@"%@, %@", businessman.allTimeBusy, businessman.smallSleepingTime); //why businessman???? if not only him??
+            if ([someone isKindOfClass:[YKHuman class]]) {
+                [someone type];
+                NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
+                                                   someone.hight, someone.weight, someone.sex);
+                if ([someone isMemberOfClass:[YKBusinessman class]]) {
+                    NSLog(@"%@, %@", businessman.allTimeBusy, businessman.smallSleepingTime); //why businessman???? if not only him??
+                }
             }
             
+            if ([someone isKindOfClass:[YKAnimal class]]) {
+                [someone type];
+            }
+
             [someone movement];
         }
 

@@ -13,5 +13,6 @@
 @property (nonatomic, assign)   NSUInteger  countOfLegs;
 
 - (void)movement;
+- (void)type;
 
 @end

@@ -25,4 +25,8 @@ static const NSUInteger YKDefaultCountOflegs = 4;
     NSLog(@"Basically animals move %@, and have %lu legs.", self.howToMove, self.countOfLegs);
 }
 
+- (void)type {
+    NSLog(@"Type is - %@", self);
+}
+
 @end

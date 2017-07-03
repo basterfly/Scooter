@@ -19,7 +19,7 @@ static const NSUInteger YKDefaultCountOflegs = 2;
         self.jump = @"jump";
         self.tail = @"tail";
         self.howToMove = @"vertically";
-        self.countOfLegs = 2;
+        self.countOfLegs = YKDefaultCountOflegs;
     }
     return self;
 }

@@ -37,6 +37,10 @@
     NSLog(@"Human - walk");
 }
 
+- (void)type {
+    NSLog(@"Type is - %@", self);
+}
+
 //- (NSString *)setTheName:(NSString *)name {
 //    self.name = name;
 //    return self.name;
