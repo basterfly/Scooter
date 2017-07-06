@@ -67,34 +67,36 @@ int main(int argc, const char * argv[]) {
         YKKangaroo *kangaroo = [[YKKangaroo alloc] init];
         YKBear *bear = [[YKBear alloc] init];
         
-        
         NSArray *creatures = @[human, runner, biker, swimmer, businessman]; //v.1
-        for (YKHuman *someone in creatures) {
-            NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
-                                               someone.hight, someone.weight, someone.sex);
-
-        
-            if ([someone isKindOfClass:[YKBusinessman class]]) {
-                NSLog(@"%@, %@", businessman.allTimeBusy, businessman.smallSleepingTime); //why businessman???? if not only him??
+        NSArray *animals = [NSArray arrayWithObjects: dog, kangaroo, bear, nil]; //v.2
+        for (NSUInteger i = 0; i < creatures.count || i < animals.count; i++) {
+            YKHuman *someone = [[YKHuman alloc] init];
+            someone = [creatures objectAtIndex:i];
+            if (i <= creatures.count ) {
+                NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
+                      someone.hight, someone.weight, someone.sex);
+                if ([someone isKindOfClass:[YKBusinessman class]]) {
+                    NSLog(@"%@, %@", businessman.allTimeBusy, businessman.smallSleepingTime); //why businessman???? if not only him??
+                }
+                
+                [someone movement];
             }
             
-            [someone movement];
-        }
-        
-        NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        
-        NSArray *animals = [NSArray arrayWithObjects: dog, kangaroo, bear, nil]; //v.2
-        for (NSUInteger i = animals.count -1; i <= animals.count; i--) {
-            YKAnimal *animal = [[YKAnimal alloc] init];
-            animal = [animals objectAtIndex:i];
-            if (animal) {
-                [animal type];
+            if (i <= animals.count - 1) {
+                YKAnimal *animal = [[YKAnimal alloc] init];
+                animal = [animals objectAtIndex:i];
+                if (animal) {
+                    [animal type];
+                }
+                
+                [animal movement];
             }
-
-            [animal movement];
+            
+            NSLog(@"%lu ", i);
         }
-
+        
     }
+    
     return 0;
 }
 
@@ -134,6 +136,7 @@ int main(int argc, const char * argv[]) {
  (кодинг за гранью возможного! + вероятность успеха практически 0! + реальный вызов!)
  
  14. Соединить животных и людей в одном массиве.
- 15. Используя нужный метод класса NSArray отсортировать массив (как результат будет другой массив). 16. Сортировать так: сначала люди, а потом животные, люди отсортированы по имени, а животные по кличкам
+ 15. Используя нужный метод класса NSArray отсортировать массив (как результат будет другой массив). 
+ 16. Сортировать так: сначала люди, а потом животные, люди отсортированы по имени, а животные по кличкам
  17. Реально требует разобраться с сортировкой самому, тяжело, но достойно уважения
 */
