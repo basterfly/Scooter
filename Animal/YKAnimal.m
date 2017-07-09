@@ -17,6 +17,7 @@ static const NSUInteger YKDefaultCountOflegs = 4;
     if (self) {
         self.howToMove = @"horizontally";
         self.countOfLegs = YKDefaultCountOflegs;
+        self.name = @"No name";
     }
     return self;
 }

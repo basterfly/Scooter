@@ -11,6 +11,7 @@
 @interface YKAnimal : NSObject
 @property (nonatomic, strong)   NSString    *howToMove;
 @property (nonatomic, assign)   NSUInteger  countOfLegs;
+@property (nonatomic, strong)   NSString    *name;
 
 - (void)movement;
 - (void)type;

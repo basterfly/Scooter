@@ -54,14 +54,14 @@ int main(int argc, const char * argv[]) {
         swimmer.sex = @"female";
         
         YKBusinessman *businessman = [[YKBusinessman alloc] init];
-        businessman.name = @"businessman";
+        businessman.name = @"Businessman";
         businessman.age = 45;
         businessman.hight = 178;
         businessman.weight = 90;
         businessman.sex = @"male";
         businessman.allTimeBusy = @"all Time Busy";
         businessman.smallSleepingTime = @"small sleeping time";
-        //businessman.earlyWakeup = @"earlyWakeup";??
+//        businessman.earlyWakeup = @"earlyWakeup"; //?? не могу задать от сюда т.к. оно скрытое
         
         YKDog *dog = [[YKDog alloc] init];
         YKKangaroo *kangaroo = [[YKKangaroo alloc] init];
@@ -91,10 +91,20 @@ int main(int argc, const char * argv[]) {
                 
                 [animal movement];
             }
-            
-            NSLog(@"%lu ", i);
         }
         
+//        Superman
+        creatures = [creatures arrayByAddingObjectsFromArray:animals];
+        NSLog(@"%lu", creatures.count); //test count
+        NSArray *sortedArray = [[NSArray alloc] init];
+//        [object.name compare: nextObject.name]; // see: compare!!!
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        sortedArray = [creatures sortedArrayUsingDescriptors:sortDescriptors];
+        NSLog(@"~~~~~~~~~~~~~~~~~sort~~~~~~~~~~~~~~~~~");
+        for (YKHuman *object in sortedArray) {
+            NSLog(@"%@", object.name);
+        }
     }
     
     return 0;

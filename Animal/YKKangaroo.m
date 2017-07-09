@@ -20,6 +20,7 @@ static const NSUInteger YKDefaultCountOflegs = 2;
         self.tail = @"tail";
         self.howToMove = @"vertically";
         self.countOfLegs = YKDefaultCountOflegs;
+        self.name = @"Kangaroo";
     }
     return self;
 }

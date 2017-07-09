@@ -15,6 +15,7 @@
     if (self) {
         self.sharpTeeth = @"sharp teeth";
         self.tail = @"tail";
+        self.name = @"Dog";
     }
     return self;
 }

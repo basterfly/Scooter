@@ -16,6 +16,7 @@
         self.sharpClaws = @"sharp claws";
         self.sharpTeeth = @"sharp teth";
         self.tail = @"tail";
+        self.name = @"Bear";
     }
     return self;
 }
