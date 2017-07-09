@@ -102,8 +102,17 @@ int main(int argc, const char * argv[]) {
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         sortedArray = [creatures sortedArrayUsingDescriptors:sortDescriptors];
         NSLog(@"~~~~~~~~~~~~~~~~~sort~~~~~~~~~~~~~~~~~");
+        NSMutableArray *mutableAnimals = [[NSMutableArray alloc] init];
         for (YKHuman *object in sortedArray) {
+            if ([object isKindOfClass:[YKAnimal class]]) {
+                [mutableAnimals addObject:object];
+                continue;
+            }
+            
             NSLog(@"%@", object.name);
+        }
+        for (YKAnimal *obj in mutableAnimals) {
+            NSLog(@"%@", obj.name);
         }
     }
     
