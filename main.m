@@ -99,8 +99,7 @@ int main(int argc, const char * argv[]) {
         NSArray *sortedArray = [[NSArray alloc] init];
 //        [object.name compare: nextObject.name]; // see: compare!!!
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        sortedArray = [creatures sortedArrayUsingDescriptors:sortDescriptors];
+        sortedArray = [creatures sortedArrayUsingDescriptors:@[sortDescriptor]];
         NSLog(@"~~~~~~~~~~~~~~~~~sort~~~~~~~~~~~~~~~~~");
         NSMutableArray *mutableAnimals = [[NSMutableArray alloc] init];
         for (YKHuman *object in sortedArray) {
