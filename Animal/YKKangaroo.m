@@ -17,8 +17,8 @@ static const NSUInteger YKDefaultCountOflegs = 2;
     self = [super init];
     if (self) {
         self.jump = @"jump";
-        self.tail = @"tail";
-        self.howToMove = @"vertically";
+        self.tail = YES;
+        self.movePosition = @"vertically";
         self.countOfLegs = YKDefaultCountOflegs;
         self.name = @"Kangaroo";
     }
@@ -26,8 +26,8 @@ static const NSUInteger YKDefaultCountOflegs = 2;
 }
 
 - (void)movement {
-    NSLog(@"%@ move %@, have %lu legs, and it can %@, and has %@.", self, self.howToMove, self.countOfLegs,
-                                                                    self.jump, self.tail);
+    NSLog(@"%@ move %@, have %lu legs, and it can %@, and has tail - %@.", self, self.movePosition, self.countOfLegs,
+                                                                    self.jump, (self.tail ? @"YES" : @"NO"));
 }
 
 @end

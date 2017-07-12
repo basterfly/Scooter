@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface YKAnimal : NSObject
-@property (nonatomic, strong)   NSString    *howToMove;
+@property (nonatomic, strong)   NSString    *movePosition;
 @property (nonatomic, assign)   NSUInteger  countOfLegs;
 @property (nonatomic, strong)   NSString    *name;
 

@@ -15,7 +15,7 @@ static const NSUInteger YKDefaultCountOflegs = 4;
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.howToMove = @"horizontally";
+        self.movePosition = @"horizontally";
         self.countOfLegs = YKDefaultCountOflegs;
         self.name = @"No name";
     }
@@ -23,7 +23,7 @@ static const NSUInteger YKDefaultCountOflegs = 4;
 }
 
 - (void)movement {
-    NSLog(@"Basically animals move %@, and have %lu legs.", self.howToMove, self.countOfLegs);
+    NSLog(@"Basically animals move %@, and have %lu legs.", self.movePosition, self.countOfLegs);
 }
 
 - (void)type {

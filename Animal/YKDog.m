@@ -14,15 +14,15 @@
     self = [super init];
     if (self) {
         self.sharpTeeth = @"sharp teeth";
-        self.tail = @"tail";
+        self.tail = YES;
         self.name = @"Dog";
     }
     return self;
 }
 
 - (void)movement {
-    NSLog(@"%@ move %@, have %lu legs, and it has %@, and %@.", self, self.howToMove, self.countOfLegs,
-                                                                self.sharpTeeth, self.tail);
+    NSLog(@"%@ move %@, have %lu legs, and it has %@, and tail - %@.", self, self.movePosition, self.countOfLegs,
+                                                                       self.sharpTeeth, (self.tail ? @"YES" : @"NO"));
 }
 
 @end

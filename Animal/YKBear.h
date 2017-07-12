@@ -11,6 +11,6 @@
 @interface YKBear : YKAnimal
 @property (nonatomic, strong)   NSString    *sharpClaws;
 @property (nonatomic, strong)   NSString    *sharpTeeth;
-@property (nonatomic, strong)   NSString    *tail;
+@property (nonatomic, assign)   BOOL        tail;
 
 @end

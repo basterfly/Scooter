@@ -12,17 +12,17 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.howToMove = @"horizontally or vertically";
+        self.movePosition = @"horizontally or vertically";
         self.sharpClaws = @"sharp claws";
         self.sharpTeeth = @"sharp teth";
-        self.tail = @"tail";
+        self.tail = YES;
         self.name = @"Bear";
     }
     return self;
 }
 
 - (void) movement {
-    NSLog(@"%@ move %@, have %lu legs, and it has %@, %@ and %@.", self, self.howToMove, self.countOfLegs,
-          self.sharpClaws, self.sharpTeeth, self.tail);
+    NSLog(@"%@ move %@, have %lu legs, and it has %@, %@ and tail - %@.", self, self.movePosition, self.countOfLegs,
+          self.sharpClaws, self.sharpTeeth, (self.tail ? @"YES" : @"NO"));
 }
 @end

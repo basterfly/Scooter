@@ -9,7 +9,7 @@
 #import "YKAnimal.h"
 
 @interface YKKangaroo : YKAnimal
-@property (nonatomic, strong)   NSString    *tail;
+@property (nonatomic, assign)   BOOL        tail;
 @property (nonatomic, strong)   NSString    *jump;
 
 @end

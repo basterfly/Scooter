@@ -19,10 +19,6 @@
 {
     self = [super init];
     if (self) {
-        self.age = 0;
-        self.hight = 0;
-        self.weight = 0;
-        self.sex = @"man";
         self.name = @"no name";
     }
     return self;

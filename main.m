@@ -30,35 +30,35 @@ int main(int argc, const char * argv[]) {
         human.age = 15;
         human.hight = 1.6f;
         human.weight = 45;
-        human.sex = @"male";
+        human.sex = YKMale;
         
         YKRunner *runner = [[YKRunner alloc] init];
         runner.name = @"runner";
         runner.age = 35;
         runner.hight = 1.8f;
         runner.weight = 55;
-        runner.sex = @"female";
+        runner.sex = YKFemale;
         
         YKBiker *biker = [[YKBiker alloc] init];
         biker.name = @"biker";
         biker.age = 28;
         biker.hight = 1.85f;
         biker.weight = 65;
-        biker.sex = @"male";
+        biker.sex = YKMale;
         
         YKSwimmer *swimmer = [[YKSwimmer alloc] init];
         swimmer.name = @"swimmer";
         swimmer.age = 25;
         swimmer.hight = 1.7f;
         swimmer.weight = 48;
-        swimmer.sex = @"female";
+        swimmer.sex = YKFemale;
         
         YKBusinessman *businessman = [[YKBusinessman alloc] init];
         businessman.name = @"Businessman";
         businessman.age = 45;
         businessman.hight = 178;
         businessman.weight = 90;
-        businessman.sex = @"male";
+        businessman.sex = YKMale;
         businessman.allTimeBusy = @"all Time Busy";
         businessman.smallSleepingTime = @"small sleeping time";
 //        businessman.earlyWakeup = @"earlyWakeup"; //?? не могу задать от сюда т.к. оно скрытое
@@ -74,7 +74,7 @@ int main(int argc, const char * argv[]) {
             someone = [creatures objectAtIndex:i];
             if (i <= creatures.count ) {
                 NSLog(@"%@: I am: %@ %lu, %f, %f, %@", someone, someone.name, (unsigned long)someone.age,
-                      someone.hight, someone.weight, someone.sex);
+                      someone.hight, someone.weight, (someone.sex ? @"male" : @"female"));
                 if ([someone isKindOfClass:[YKBusinessman class]]) {
                     NSLog(@"%@, %@", businessman.allTimeBusy, businessman.smallSleepingTime); //why businessman???? if not only him??
                 }
