@@ -8,10 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum
+{
+    horizontal,
+    vertical
+} YKmovePosition;
+
 @interface YKAnimal : NSObject
-@property (nonatomic, strong)   NSString    *movePosition;
-@property (nonatomic, assign)   NSUInteger  countOfLegs;
-@property (nonatomic, strong)   NSString    *name;
+@property (nonatomic, assign)   YKmovePosition      movePosition;
+@property (nonatomic, assign)   NSUInteger          countOfLegs;
+@property (nonatomic, strong)   NSString            *name;
 
 - (void)movement;
 - (void)type;

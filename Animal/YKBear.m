@@ -12,7 +12,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.movePosition = @"horizontally or vertically";
+        self.movePosition = horizontal;
         self.sharpClaws = @"sharp claws";
         self.sharpTeeth = @"sharp teth";
         self.tail = YES;
@@ -22,7 +22,6 @@
 }
 
 - (void) movement {
-    NSLog(@"%@ move %@, have %lu legs, and it has %@, %@ and tail - %@.", self, self.movePosition, self.countOfLegs,
-          self.sharpClaws, self.sharpTeeth, (self.tail ? @"YES" : @"NO"));
+    NSLog(@"%@ move %@, have %lu legs, and it has %@, %@ and tail - %@.", self, (self.movePosition ? @"horizontal" : @"vertical"), self.countOfLegs, self.sharpClaws, self.sharpTeeth, (self.tail ? @"YES" : @"NO"));
 }
 @end
