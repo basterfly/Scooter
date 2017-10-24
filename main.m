@@ -8,23 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-//#import "YKHuman.h"
-//#import "YKRunner.h"
-//#import "YKBiker.h"
-//#import "YKSwimmer.h"
-//#import "YKBusinessman.h"
-//
-//#import "YKAnimal.h"
-//#import "YKDog.h"
-//#import "YKKangaroo.h"
-//#import "YKBear.h"
+#import "Task7.h"
 
 #import "YKTest1.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        [YKTest1 test1];
-        
+//        [YKTest1 test1];
+        [Task7 task7];
     }
     
     return 0;

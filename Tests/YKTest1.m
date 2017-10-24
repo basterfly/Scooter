@@ -109,6 +109,7 @@
             
             NSLog(@"%@", object.name);
         }
+    
         for (YKAnimal *obj in mutableAnimals) {
             NSLog(@"%@", obj.name);
         }
