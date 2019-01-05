@@ -11,11 +11,6 @@
 @interface YKStudentHW13 : NSObject
 @property (strong, nonatomic) NSString *name;
 
-- (void)guessValue:(NSUInteger)value inRange:(NSRange)range;
-- (void)guessTheAnswer:(NSUInteger)value inRange:(NSRange )range;
-//pupil
 - (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range;
-//student
-- (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range withBlock:block;    //(void(^)(void))block;
 
 @end
