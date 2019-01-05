@@ -39,8 +39,9 @@
         NSLog(@"%@: Goodbye!", self.name);
     };
     
-    dispatch_queue_t myQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(myQueue, myBlock);
+//    dispatch_queue_t myQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//    dispatch_async(myQueue, myBlock);
+    myBlock(); //without dispatch_queue_t myQueue when students works, just YKstaticQueue = dispatch_queue_create("com.YKStaticQueue", DISPATCH_QUEUE_CONCURRENT);
     
 }
 
