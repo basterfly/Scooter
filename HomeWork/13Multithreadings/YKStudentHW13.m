@@ -105,12 +105,14 @@
 }
 
 //      Dispatch with Block         Student
-- (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range withBlock:(id)mainBlock{
-    void(^myBlock)(void) = ^{
+- (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range withBlock:mainBlock{
+    __block NSUInteger location = range.location;
+    __block NSUInteger iterations = 0;
+    void(^studentBlock)(void) = ^{
         @autoreleasepool {
             @synchronized(self) {
-                NSUInteger location = range.location;
-                NSUInteger iterations = 0;
+//                NSUInteger location = range.location;
+//                NSUInteger iterations = 0;
             //    угадывать число и подсчитывать с какого раза угадал
                 for (; location <= range.length; ) {
                     iterations++;
@@ -133,13 +135,9 @@
         NSLog(@"%@: Goodbye!", self.name);
     };
     
-    dispatch_queue_t myQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(myQueue, myBlock);
-//    dispatch_async(mainQueue, mainBlock);
+    dispatch_queue_t studentsQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(studentsQueue, studentBlock);
+    dispatch_async(dispatch_get_main_queue(), mainBlock);
 }
-
-//- (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range withBlock:(void (^)(void))block {
-//}
-
 
 @end

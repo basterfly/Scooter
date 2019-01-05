@@ -26,9 +26,9 @@
     
     NSLog(@"~~~~~~ 13 YKThreadings HomeWork ~~~~~~ Pupil - Student ~~~~~~");
     YKMultithreadingsHW13 *hw = [[YKMultithreadingsHW13 alloc] init];
-//    [hw multithreadingsHW];
+    [hw multithreadingsHW];
     NSLog(@"~~~~~~ 13 YKThreadings HomeWork ~~~~~~ Master ~~~~~~");
-    [hw multithreadingsHWMaster];
+//    [hw multithreadingsHWMaster];
     
     return YES;
 }

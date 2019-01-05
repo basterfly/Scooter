@@ -49,13 +49,13 @@
         for (int i = 0; i < 2000; i++) {
         }
         
-        dispatch_async(dispatch_get_main_queue(),^{ //если что то счетал и нужно обновить на экране, выполняется через главный поток
+        dispatch_async(dispatch_get_main_queue(),^{ //если что то считал и нужно обновить на экране, выполняется через главный поток
             NSLog(@"%@ finish in %f", [[NSThread currentThread] name], CACurrentMediaTime() - startTime);
         });
     });
     
     ///////////////////////////////
-    //    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); -выполняю на глобальной очереди два потока (оба блока на глобальной очереди вызываются одновременно) с X и 0 если бы в методе addStringToArray не было бы @sinchronized то попсыпались бы ошыбки памяти а X и 0 будут в перемешку, в данном случае @sinchronized спасает, но если мы хотим избежать глобальной очереди и использовать свою собственную и еще и без @sinchronized то:
+    //    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0); -выполняю на глобальной очереди два потока (оба блока на глобальной очереди вызываются одновременно) с X и 0 если бы в методе addStringToArray не было бы @sinchronized то посыпались бы ошыбки памяти а X и 0 будут в перемешку, в данном случае @sinchronized спасает, но если мы хотим избежать глобальной очереди и использовать свою собственную и еще и без @sinchronized то:
     dispatch_queue_t newQueue = dispatch_queue_create("com.ykkozlovskyi.testthreads.queue", DISPATCH_QUEUE_SERIAL);
     __weak id weakSelf = self;  //перестраховка на то что обьект не останется жить после смерти блока
     dispatch_async(newQueue, ^{

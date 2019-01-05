@@ -49,16 +49,15 @@ static dispatch_once_t once;
 //        __weak YKStudentHW13 *weakStudent = student;
         void(^mainBlock)(void) = ^(void) {
 //      dispatch_queue_t with block on main thread
-            NSLog(@"%@ did guess value %u in range %lu - %lu", student.name, guessValue,
-                  (unsigned long)range.location, range.length);
+            NSLog(@"%@ did guess value %u in range %lu - %lu", student.name, guessValue, (unsigned long)range.location, range.length);
         };
         [student guessValueDispatch:guessValue inRange:range withBlock:mainBlock];
-        dispatch_queue_t mainQueue = dispatch_get_main_queue();
-        dispatch_async(mainQueue, mainBlock);
+//        dispatch_queue_t mainQueue = dispatch_get_main_queue(); //no need
+//        dispatch_async(dispatch_get_main_queue(), mainBlock); // execute from student obj
     }
 }
 
-//      Master
+/*//      Master
 -(void)multithreadingsHWMaster {
     NSLog(@"~~~Master~~~ +(dispatch_queue_t)initAndReturnStaticQueue ~~~");
     NSMutableArray *students = [[NSMutableArray alloc] init];
@@ -84,6 +83,7 @@ static dispatch_once_t once;
         }
         
 //      Master
+//        dispatch_async(YKstaticQueue, ^{
         dispatch_async([[self class] initAndReturnStaticQueue], ^{
             NSLog(@"%@ will have to guess %u in range: %lu - %lu", student.name, guessValue, range.location, range.length);
             [student guessValueDispatch:guessValue inRange:range];
@@ -94,24 +94,19 @@ static dispatch_once_t once;
 //      Master
 +(dispatch_queue_t)initAndReturnStaticQueue {
 ////   void(^blockForOnceStart)(void) = ^{
-////        YKstaticQueue = dispatch_queue_create("com.YK.StaticQueue", DISPATCH_QUEUE_CONCURRENT);
+////        YKstaticQueue = dispatch_queue_create("com.YKStaticQueue", DISPATCH_QUEUE_CONCURRENT);
 ////    };
     
     dispatch_once(&once, ^(void){  
-        YKstaticQueue = dispatch_queue_create("YKStaticQueue", DISPATCH_QUEUE_CONCURRENT);
+        YKstaticQueue = dispatch_queue_create("com.YKStaticQueue", DISPATCH_QUEUE_CONCURRENT);
     });
     
     return YKstaticQueue;
 }
-
+*/
 @end
 
 /*
- Студент.
- 
- 7. Задача та же, но вместе с условием передавайте студенту блок, в котором вы и объявите результаты
- 8. Блок должен определяться в томже классе, где и определялись студенты
- 9. Блок должен быть вызван на главном потоке
  
  Супермен.
  13. Добавьте еще один класс студента, который делает все тоже самое что вы реализовали до этого, только вместо GCD он использует NSOperation и NSOperationQueue. Вообще вынос мозга в самостоятельной работе :)
