@@ -24,7 +24,7 @@
 //    YKThreadingsTests *tt = [[YKThreadingsTests alloc] init];
 //    [tt treadingsTests];
     
-    NSLog(@"~~~~~~ 13 YKThreadings HomeWork ~~~~~~ Pupil ~~~~~~");
+    NSLog(@"~~~~~~ 13 YKThreadings HomeWork ~~~~~~ Student ~~~~~~");
     YKMultithreadingsHW13 *hw = [[YKMultithreadingsHW13 alloc] init];
     [hw multithreadingsHW];
 //    NSLog(@"~~~~~~ 13 YKThreadings HomeWork ~~~~~~ Master ~~~~~~");

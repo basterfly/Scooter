@@ -9,6 +9,8 @@
 #import "YKMultithreadingsHW13.h"
 #import "YKStudentHW13.h"
 
+static dispatch_queue_t YKstaticQueue;
+
 @implementation YKMultithreadingsHW13
 
 -(void)multithreadingsHW {
@@ -40,7 +42,17 @@
 //NSThread
 //        [student guessValue:guessValue inRange:range];
 //dispatch_queue_t
-        [student guessValueDispatch:guessValue inRange:range];
+//        [student guessValueDispatch:guessValue inRange:range];
+
+//        student
+//        __weak YKStudentHW13 *weakStudent = student;
+        void(^mainBlock)(void) = ^(void) {
+//      dispatch_queue_t with block on main thread
+            NSLog(@"%@ did guess value %u in range %lu - %lu", student.name, guessValue, (unsigned long)range.location, range.length);
+        };
+        [student guessValueDispatch:guessValue inRange:range withBlock:mainBlock];
+//        dispatch_queue_t mainQueue = dispatch_get_main_queue(); //no need
+//        dispatch_async(dispatch_get_main_queue(), mainBlock); // execute from student obj
     }
 }
 
