@@ -15,7 +15,5 @@
 - (void)guessTheAnswer:(NSUInteger)value inRange:(NSRange )range;
 //pupil
 - (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range;
-//student
-- (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range withBlock:block;    //(void(^)(void))block;
 
 @end
