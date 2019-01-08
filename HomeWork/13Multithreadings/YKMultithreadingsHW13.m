@@ -14,6 +14,7 @@ static dispatch_once_t once;
 
 @implementation YKMultithreadingsHW13
 
+//      Master
 -(void)multithreadingsHWMaster {
     NSLog(@"~~~Master~~~ +(dispatch_queue_t)initAndReturnStaticQueue ~~~");
     NSMutableArray *students = [[NSMutableArray alloc] init];
@@ -41,17 +42,14 @@ static dispatch_once_t once;
 //      Master
         dispatch_async([[self class] initAndReturnStaticQueue], ^{
             NSLog(@"%@ will have to guess %u in range: %lu - %lu", student.name, guessValue, range.location, range.length);
-            [student guessValueDispatch:guessValue inRange:range];
+//            [student guessValueDispatch:guessValue inRange:range]; //Dispatch : with or without queue when students works
+            [student guessTheAnswer:guessValue inRange:range]; //without any queue and blocks when students works
         });
     }
 }
 
 //      Master
 +(dispatch_queue_t)initAndReturnStaticQueue {
-////   void(^blockForOnceStart)(void) = ^{
-////        YKstaticQueue = dispatch_queue_create("com.YKStaticQueue", DISPATCH_QUEUE_CONCURRENT);
-////    };
-    
     dispatch_once(&once, ^(void){  
         YKstaticQueue = dispatch_queue_create("com.YKStaticQueue", DISPATCH_QUEUE_CONCURRENT);
     });

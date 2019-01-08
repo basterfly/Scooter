@@ -10,6 +10,30 @@
 
 @implementation YKStudentHW13
 
+//pupil
+- (void)guessTheAnswer:(NSUInteger)value inRange:(NSRange )range {
+    NSUInteger location = range.location;
+    NSUInteger iterations = 0;
+    //    угадывать число и подсчитывать с какого раза угадал
+    for (; location <= range.length; ) {
+        iterations++;
+        if (location < value) {
+            location = arc4random_uniform((uint32_t)range.length);
+        }
+                
+        if (location > value) {
+            location = arc4random_uniform((uint32_t)location);
+        }
+            
+        if (location == value) {
+            NSLog(@"I %@ have guess the value on %lu times! The value is %lu", self.name, iterations, location);
+            break;
+        }
+    }
+    
+    NSLog(@"%@: Goodbye!", self.name);
+}
+
 //      Dispatch
 - (void)guessValueDispatch:(NSUInteger)value inRange:(NSRange)range {
     void(^myBlock)(void) = ^{
