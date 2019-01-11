@@ -10,7 +10,7 @@
 
 @interface YKMultithreadingsHW13 : NSObject
 
-- (void)multithreadingsHWMaster;
+- (void)multithreadingsHWSuperman;
 
 @end
 

@@ -17,6 +17,7 @@
 		7465DED321BD927A0001243B /* YKThreadingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7465DED221BD927A0001243B /* YKThreadingsTests.m */; };
 		7465DED621BFC8F00001243B /* YKMultithreadingsHW13.m in Sources */ = {isa = PBXBuildFile; fileRef = 7465DED521BFC8F00001243B /* YKMultithreadingsHW13.m */; };
 		7465DEDA21BFF9F40001243B /* YKStudentHW13.m in Sources */ = {isa = PBXBuildFile; fileRef = 7465DED921BFF9F40001243B /* YKStudentHW13.m */; };
+		74EFB61721E4C41A006083D9 /* YKStudentOper.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EFB61621E4C41A006083D9 /* YKStudentOper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		7465DED521BFC8F00001243B /* YKMultithreadingsHW13.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKMultithreadingsHW13.m; sourceTree = "<group>"; };
 		7465DED821BFF9F40001243B /* YKStudentHW13.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YKStudentHW13.h; sourceTree = "<group>"; };
 		7465DED921BFF9F40001243B /* YKStudentHW13.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKStudentHW13.m; sourceTree = "<group>"; };
+		74EFB61521E4C41A006083D9 /* YKStudentOper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YKStudentOper.h; sourceTree = "<group>"; };
+		74EFB61621E4C41A006083D9 /* YKStudentOper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKStudentOper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				7465DED521BFC8F00001243B /* YKMultithreadingsHW13.m */,
 				7465DED821BFF9F40001243B /* YKStudentHW13.h */,
 				7465DED921BFF9F40001243B /* YKStudentHW13.m */,
+				74EFB61521E4C41A006083D9 /* YKStudentOper.h */,
+				74EFB61621E4C41A006083D9 /* YKStudentOper.m */,
 			);
 			path = 13Multithreadings;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74EFB61721E4C41A006083D9 /* YKStudentOper.m in Sources */,
 				7465DED621BFC8F00001243B /* YKMultithreadingsHW13.m in Sources */,
 				7465DEB021BD91D50001243B /* ViewController.m in Sources */,
 				7465DEBB21BD91DC0001243B /* main.m in Sources */,
