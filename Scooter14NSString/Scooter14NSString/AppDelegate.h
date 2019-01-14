@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  13NSThreading
+//  Scooter14NSString
 //
-//  Created by Egor Kozlovskiy on 09.12.2018.
-//  Copyright © 2018 Egor Kozlovskiy. All rights reserved.
+//  Created by Egor Kozlovskiy on 1/14/19.
+//  Copyright © 2019 Yegor Kozlovskiy. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

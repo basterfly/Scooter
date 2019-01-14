@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  13NSThreading
+//  Scooter14NSString
 //
-//  Created by Egor Kozlovskiy on 09.12.2018.
-//  Copyright © 2018 Egor Kozlovskiy. All rights reserved.
+//  Created by Egor Kozlovskiy on 1/14/19.
+//  Copyright © 2019 Yegor Kozlovskiy. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -17,12 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
