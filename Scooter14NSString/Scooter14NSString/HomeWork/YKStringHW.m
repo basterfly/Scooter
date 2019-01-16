@@ -52,6 +52,19 @@
     tempText = nil;
 //    searchRange = nil;
     newLocation = (NSUInteger)NULL;
+    
+    
+//    Студент
+    NSArray *sentences = [NSArray arrayWithArray:arrayOfStrings];
+    [arrayOfStrings removeObjectsInArray:arrayOfStrings];
+    NSLog(@"sentences count = %lu", [sentences count]);
+    for (NSString *sentence in sentences) {
+        if ([sentence containsString:@"NSString"] ? YES : NO) {
+            [arrayOfStrings addObject:sentence];
+            NSLog(@"%@", sentence);
+        }
+    }
+    NSLog(@"Find and added %lu sentences to the arrayOfStrings", [arrayOfStrings count]);
 }
 
 @end
