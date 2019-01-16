@@ -14,6 +14,8 @@
 		74EFB66E21ECBB0D006083D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74EFB66C21ECBB0D006083D9 /* LaunchScreen.storyboard */; };
 		74EFB67121ECBB0D006083D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EFB67021ECBB0D006083D9 /* main.m */; };
 		74EFB67B21ECBB0D006083D9 /* Scooter14NSStringUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EFB67A21ECBB0D006083D9 /* Scooter14NSStringUITests.m */; };
+		74EFB68821EDE02E006083D9 /* YKStringHW.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EFB68721EDE02E006083D9 /* YKStringHW.m */; };
+		74EFB68C21EDE07A006083D9 /* YKTestsString.m in Sources */ = {isa = PBXBuildFile; fileRef = 74EFB68B21EDE07A006083D9 /* YKTestsString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		74EFB67621ECBB0D006083D9 /* Scooter14NSStringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Scooter14NSStringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		74EFB67A21ECBB0D006083D9 /* Scooter14NSStringUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scooter14NSStringUITests.m; sourceTree = "<group>"; };
 		74EFB67C21ECBB0D006083D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		74EFB68621EDE02E006083D9 /* YKStringHW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YKStringHW.h; sourceTree = "<group>"; };
+		74EFB68721EDE02E006083D9 /* YKStringHW.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKStringHW.m; sourceTree = "<group>"; };
+		74EFB68A21EDE07A006083D9 /* YKTestsString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YKTestsString.h; sourceTree = "<group>"; };
+		74EFB68B21EDE07A006083D9 /* YKTestsString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YKTestsString.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 		74EFB66021ECBB08006083D9 /* Scooter14NSString */ = {
 			isa = PBXGroup;
 			children = (
+				74EFB68521EDDFD4006083D9 /* HomeWork */,
+				74EFB68921EDE047006083D9 /* Tests */,
 				74EFB66121ECBB08006083D9 /* AppDelegate.h */,
 				74EFB66221ECBB08006083D9 /* AppDelegate.m */,
 				74EFB66421ECBB08006083D9 /* ViewController.h */,
@@ -101,6 +109,24 @@
 				74EFB67C21ECBB0D006083D9 /* Info.plist */,
 			);
 			path = Scooter14NSStringUITests;
+			sourceTree = "<group>";
+		};
+		74EFB68521EDDFD4006083D9 /* HomeWork */ = {
+			isa = PBXGroup;
+			children = (
+				74EFB68621EDE02E006083D9 /* YKStringHW.h */,
+				74EFB68721EDE02E006083D9 /* YKStringHW.m */,
+			);
+			path = HomeWork;
+			sourceTree = "<group>";
+		};
+		74EFB68921EDE047006083D9 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				74EFB68A21EDE07A006083D9 /* YKTestsString.h */,
+				74EFB68B21EDE07A006083D9 /* YKTestsString.m */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74EFB68C21EDE07A006083D9 /* YKTestsString.m in Sources */,
 				74EFB66621ECBB08006083D9 /* ViewController.m in Sources */,
+				74EFB68821EDE02E006083D9 /* YKStringHW.m in Sources */,
 				74EFB67121ECBB0D006083D9 /* main.m in Sources */,
 				74EFB66321ECBB08006083D9 /* AppDelegate.m in Sources */,
 			);
