@@ -29,14 +29,8 @@
     
     for ( ; newLocation < tempText.length ; ) {
         NSRange rangeOfSentence = NSMakeRange(0, 0);
-        
         rangeOfSentence = [tempText rangeOfString:@". " options:0 range:searchRange];
         newLocation = rangeOfSentence.location + rangeOfSentence.length;
-        if (newLocation >= tempText.length) {
-            NSLog(@"CHECK in IF and EXIT");
-            continue;
-        }
-        
         NSString *newString = [tempText substringToIndex:newLocation];
         [arrayOfStrings addObject:newString];
         tempText = [tempText substringFromIndex:newLocation];
@@ -44,8 +38,9 @@
         NSLog(@" %lu %lu", tempText.length, [arrayOfStrings count]);
         if ([tempText containsString:@". "] ? NO : YES ) {
             [arrayOfStrings addObject:tempText];
+            NSLog(@" %lu %lu", tempText.length, [arrayOfStrings count]);
             NSLog(@"That is FINISH MF!!!");
-            continue;
+            break;
         }
     }
     
@@ -64,7 +59,25 @@
             NSLog(@"%@", sentence);
         }
     }
+    
     NSLog(@"Find and added %lu sentences to the arrayOfStrings", [arrayOfStrings count]);
+    
+    
+//    Мастер
+    NSMutableArray *reversSentences = [[NSMutableArray alloc] init];
+    for (NSString *sentence in sentences) {
+        NSString *tempString = [NSString new];
+        NSArray *tempWords = [NSArray new];
+        tempWords = [sentence componentsSeparatedByString:@" "];
+        NSLog(@"%@", tempWords);
+        for (int index = ((int)[tempWords count] - 1); 0 <= index; index--) {
+            tempString = [tempString stringByAppendingFormat:@"%@ ", [tempWords objectAtIndex:index]];
+        }
+        
+        [reversSentences addObject:tempString];
+        NSLog(@"%@", reversSentences);
+        NSLog(@"%lu", [reversSentences count]);
+    }
 }
 
 @end
