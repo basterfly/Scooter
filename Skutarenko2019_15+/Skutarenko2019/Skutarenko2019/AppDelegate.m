@@ -24,7 +24,7 @@
     [tests bitsTests];
     
     
-//    Homework
+//    Homework pupil
     NSLog(@"~~~Homework~~~");
     
     NSMutableArray *students = [[NSMutableArray alloc] init];
@@ -39,8 +39,65 @@
         NSLog(@"%@", studentHw);
     }
     
+//    Student
+    NSMutableArray *humanitySpec = [NSMutableArray new];
+    NSMutableArray *techSpec = [NSMutableArray new];
+    NSArray *classes = @[@"0English", @"1MAth", @"1Programming", @"1Engineering", @"0History", @"0Design", @"1Chemestry", @"0Biology"];
+    uint countOfDevelopers = 0;
+    for (YKStudentHW *studentHw in students) {
+        int value = 1;
+        uint quantityOfHumanitySpec = 0;
+        uint quantityOfTechSpec = 0;
+        NSLog(@"%@ has classes: ", studentHw.name);
+        for (int index = 0; index < classes.count; index++) {
+            NSString *classStrirng = [classes objectAtIndex:index];
+            if (studentHw.typeOfClass == (studentHw.typeOfClass | value)) {
+                if ([[classes objectAtIndex:index] containsString:@"0"]) {
+                    quantityOfHumanitySpec += 1;
+                }
+                
+                if ([[classes objectAtIndex:index]containsString:@"1"]) {
+                    quantityOfTechSpec += 1;
+                }
+                
+                classStrirng = [classStrirng substringFromIndex:1];
+                if ([classStrirng isEqualToString:@"Programming"]) {
+                    countOfDevelopers +=1;
+                }
+                
+                NSLog(@"%@", classStrirng);
+            }
+            
+            value = value << 1;
+        }
+        
+        if (quantityOfHumanitySpec == quantityOfTechSpec) {
+            NSLog(@"%@ - NOT DEFINED WITH SPECIALITY", studentHw.name);
+        }
+        
+        if (quantityOfHumanitySpec > quantityOfTechSpec) {
+            [humanitySpec addObject:studentHw];
+        } else {
+            [techSpec addObject:studentHw];
+        }
+        
+        NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        NSLog(@"Student is - %@", studentHw);
+    }
     
+    NSLog(@"humanities Speciality has %lu - students", [humanitySpec count]);
+    NSLog(@"technical Speciality has %lu - students", [techSpec count]);
+    NSLog(@"Students which study Development are %u", countOfDevelopers);
+    [students removeObjectsInArray:humanitySpec];
+    [students removeObjectsInArray:techSpec];
+    NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    NSLog(@"students.count = %lu  students: %@ \n", [students count], students);
+
     
+    //        NSLog(@"%@", studentHw);
+    //        NSLog(@"%@", [humanitySpec count]);
+    //        NSLog(@"%@", [techSpec count]);
+
     return YES;
 }
 
