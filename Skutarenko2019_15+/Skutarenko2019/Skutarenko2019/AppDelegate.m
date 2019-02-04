@@ -42,30 +42,31 @@
 //    Student
     NSMutableArray *humanitySpec = [NSMutableArray new];
     NSMutableArray *techSpec = [NSMutableArray new];
-    NSArray *classes = @[@"0English", @"1MAth", @"1Programming", @"1Engineering", @"0History", @"0Design", @"1Chemestry", @"0Biology"];
     uint countOfDevelopers = 0;
     for (YKStudentHW *studentHw in students) {
         int value = 1;
+        int classesValue = 0;
         uint quantityOfHumanitySpec = 0;
         uint quantityOfTechSpec = 0;
-        NSLog(@"%@ has classes: ", studentHw.name);
-        for (int index = 0; index < classes.count; index++) {
-            NSString *classStrirng = [classes objectAtIndex:index];
+        while ( classesValue <= studentHw.typeOfClass) {
+            classesValue += value;
             if (studentHw.typeOfClass == (studentHw.typeOfClass | value)) {
-                if ([[classes objectAtIndex:index] containsString:@"0"]) {
+                if ((value & YKStudentHWClassTypeEnglish) ||
+                    (value & YKStudentHWClassTypeHistory) ||
+                    (value & YKStudentHWClassTypeDesign) ||
+                    (value & YKStudentHWClassTypeBiology)) {
                     quantityOfHumanitySpec += 1;
                 }
                 
-                if ([[classes objectAtIndex:index]containsString:@"1"]) {
+                if ((value & YKStudentHWClassTypeMAth) ||
+                    (value & YKStudentHWClassTypeProgramming) ||
+                    (value & YKStudentHWClassTypeEngineering) ||
+                    (value & YKStudentHWClassTypeChemestry)) {
                     quantityOfTechSpec += 1;
+                    if (YKStudentHWClassTypeProgramming & value) {
+                        countOfDevelopers +=1;
+                    }
                 }
-                
-                classStrirng = [classStrirng substringFromIndex:1];
-                if ([classStrirng isEqualToString:@"Programming"]) {
-                    countOfDevelopers +=1;
-                }
-                
-                NSLog(@"%@", classStrirng);
             }
             
             value = value << 1;
@@ -92,11 +93,6 @@
     [students removeObjectsInArray:techSpec];
     NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     NSLog(@"students.count = %lu  students: %@ \n", [students count], students);
-
-    
-    //        NSLog(@"%@", studentHw);
-    //        NSLog(@"%@", [humanitySpec count]);
-    //        NSLog(@"%@", [techSpec count]);
 
     return YES;
 }
