@@ -100,7 +100,7 @@
     for (YKStudentHW *student in students) {
         if (student.typeOfClass & YKStudentHWClassTypeBiology) {
             NSLog(@"%@", student);
-            NSLog(@"%@ - is wants to study Biology \nBut Biology class is cancelled!", student.name);
+            NSLog(@"%@ - wants to study Biology \nBut Biology course is cancelled!", student.name);
             student.typeOfClass = (~YKStudentHWClassTypeBiology) & student.typeOfClass;
             NSLog(@"%@", student);
         }
