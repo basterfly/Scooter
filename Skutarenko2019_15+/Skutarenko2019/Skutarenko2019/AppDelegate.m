@@ -93,7 +93,28 @@
     [students removeObjectsInArray:techSpec];
     NSLog(@"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     NSLog(@"students.count = %lu  students: %@ \n", [students count], students);
-
+    
+    //Мастер
+    [students addObjectsFromArray:humanitySpec];
+    [students addObjectsFromArray:techSpec];
+    for (YKStudentHW *student in students) {
+        if (student.typeOfClass & YKStudentHWClassTypeBiology) {
+            NSLog(@"%@", student);
+            NSLog(@"%@ - is wants to study Biology \nBut Biology class is cancelled!", student.name);
+            student.typeOfClass = (~YKStudentHWClassTypeBiology) & student.typeOfClass;
+            NSLog(@"%@", student);
+        }
+    }
+    
+    [students removeAllObjects];
+    for (YKStudentHW *student in humanitySpec) {
+        NSLog(@"%@", student);
+    }
+    
+    for (YKStudentHW *student in techSpec) {
+        NSLog(@"%@", student);
+    }
+    
     return YES;
 }
 
