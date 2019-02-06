@@ -115,9 +115,24 @@
         NSLog(@"%@", student);
     }
     
+//    Супермен
+    int randomeInt = arc4random_uniform(INT_MAX);
+    NSString *string = [[NSString alloc] init];
+    NSString *stringTemp = [[NSString alloc] init];
+    for (int index = 0; index <= (sizeof(int) * 8) - 1; index++) {
+        NSString *string0 = @"0";
+        NSString *string1 = @"1";
+        if (randomeInt & (1 << index)) {
+            string = [stringTemp stringByAppendingFormat:@" %@ %@", string1, string];
+        } else {
+            string = [stringTemp stringByAppendingFormat:@" %@ %@", string0, string];
+        }
+    }
+    
+    NSLog(@"%@", string);
+    
     return YES;
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
