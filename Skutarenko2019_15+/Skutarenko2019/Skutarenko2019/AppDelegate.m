@@ -123,13 +123,16 @@
         NSString *string0 = @"0";
         NSString *string1 = @"1";
         if (randomeInt & (1 << index)) {
-            string = [stringTemp stringByAppendingFormat:@" %@ %@", string1, string];
+            string = [stringTemp stringByAppendingFormat:@"%@%@", string1, string];
         } else {
-            string = [stringTemp stringByAppendingFormat:@" %@ %@", string0, string];
+            string = [stringTemp stringByAppendingFormat:@"%@%@", string0, string];
+        }
+        if (index == 7 || index == 15 || index == 23) {
+            string = [stringTemp stringByAppendingFormat:@"%@%@", @" ", string];
         }
     }
     
-    NSLog(@"%@", string);
+    NSLog(@"%d = %@", randomeInt, string);
     
     return YES;
 }
