@@ -11,6 +11,10 @@
 @interface YKStudent : NSObject
 @property (strong, nonatomic) NSDate    *dateOfBirth;
 @property (strong, nonatomic) NSString  *name;
+@property (strong, nonatomic) NSString  *lastName;
 @property (assign, nonatomic) NSInteger age;
+
+- (NSString *)setName;
+- (NSString *)setLastName;
 
 @end
