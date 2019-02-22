@@ -23,18 +23,19 @@
     NSLog(@"Date: %@", toDay);
     for (int index = 1; index <= 30; index++) {
         YKStudent *student = [[YKStudent alloc] init];
-//        student.name = [NSString stringWithFormat:@"Student%d", index];
         student.name = [student setName];
         student.lastName = [student setLastName];
         student.age = arc4random_uniform(34) + 16;
         intmax_t dayOfBirth = 60 * 60 * 24 * 364 * student.age - 60 * 60 * 24 * (arc4random_uniform(363) + 1);
-//        UInt64 intmax_t dayOfBirth = dayOfBirth
 //        student.dateOfBirth = [NSDate dateWithTimeInterval:-dayOfBirth sinceDate:toDay]; //OR=>
         student.dateOfBirth = [NSDate dateWithTimeIntervalSinceNow:-dayOfBirth];
         [mutableStudents addObject:student];
 //        NSLog(@"student: %@", student);
     }
     
+    NSSortDescriptor *sortDescriptorByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptorByDateOfBirth = [NSSortDescriptor sortDescriptorWithKey:@"dateOfBirth" ascending:YES];
+    [mutableStudents sortUsingDescriptors:[NSArray arrayWithObjects:sortDescriptorByDateOfBirth, sortDescriptorByName, nil]];
     NSLog(@"%@", mutableStudents);
     return YES;
 }
