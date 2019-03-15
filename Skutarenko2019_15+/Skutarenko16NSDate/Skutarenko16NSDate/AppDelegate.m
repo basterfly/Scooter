@@ -11,6 +11,11 @@
 
 @interface AppDelegate ()
 
+@property (weak, nonatomic) NSTimer *timer;
+@property (strong, nonatomic) YKStudent *student;
+@property (strong, nonatomic) NSMutableArray *mutableStudents;
+@property (strong, nonatomic) NSDate *searchDate;
+@property (assign ,nonatomic) int index;
 @end
 
 @implementation AppDelegate
@@ -18,26 +23,141 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    NSMutableArray *mutableStudents = [[NSMutableArray alloc] init];
+    self.mutableStudents = [[NSMutableArray alloc] init];
     NSDate *toDay = [NSDate date];
     NSLog(@"Date: %@", toDay);
     for (int index = 1; index <= 30; index++) {
-        YKStudent *student = [[YKStudent alloc] init];
-        student.name = [student setName];
-        student.lastName = [student setLastName];
-        student.age = arc4random_uniform(34) + 16;
-        intmax_t dayOfBirth = 60 * 60 * 24 * 364 * student.age - 60 * 60 * 24 * (arc4random_uniform(363) + 1);
+        self.student = [[YKStudent alloc] init];
+        self.student.name = [self.student setName];
+        self.student.lastName = [self.student setLastName];
+        self.student.age = arc4random_uniform(34) + 16;
+        intmax_t dayOfBirth = 60 * 60 * 24 * 364 * self.student.age - 60 * 60 * 24 * (arc4random_uniform(363) + 1);
 //        student.dateOfBirth = [NSDate dateWithTimeInterval:-dayOfBirth sinceDate:toDay]; //OR=>
-        student.dateOfBirth = [NSDate dateWithTimeIntervalSinceNow:-dayOfBirth];
-        [mutableStudents addObject:student];
+        self.student.dateOfBirth = [NSDate dateWithTimeIntervalSinceNow:-dayOfBirth];
+        [self.mutableStudents addObject:self.student];
 //        NSLog(@"student: %@", student);
     }
     
     NSSortDescriptor *sortDescriptorByName = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     NSSortDescriptor *sortDescriptorByDateOfBirth = [NSSortDescriptor sortDescriptorWithKey:@"dateOfBirth" ascending:YES];
-    [mutableStudents sortUsingDescriptors:[NSArray arrayWithObjects:sortDescriptorByDateOfBirth, sortDescriptorByName, nil]];
-    NSLog(@"%@", mutableStudents);
+    [self.mutableStudents sortUsingDescriptors:[NSArray arrayWithObjects:sortDescriptorByDateOfBirth, sortDescriptorByName, nil]];
+    NSLog(@"%@", self.mutableStudents);
+    
+//    Master
+//    self.timer = [[NSTimer alloc] init];
+//    self.timer = timer;
+    /*void (^myBlock)(NSTimer *) = ^(NSTimer *timer){
+        NSLog(@"~~~ BLOCK ~~~");
+        NSDate *testDate = [NSDate dateWithTimeIntervalSinceNow:(-1 * (60 * 60 * 24 * 365 * 51))];
+        for (YKStudent *student in mutableStudents) {
+            
+            
+            if (testDate == student.dateOfBirth) {
+                NSLog(@"~~~~~~~~~~~~~~~~~~~~~~/nHAPPY BIRTHDAY!!!\n~~~~~~~~~~~~~~~~~~~~~~");
+                NSLog(@"%@", student);
+            }
+            
+            testDate = [NSDate dateWithTimeInterval:(60 * 60 * 24) sinceDate:testDate];
+            if (testDate == [NSDate date]) {
+                [timer invalidate];
+                continue;
+            }
+        }
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"HH:mm:ss - dd.MMM .YYYY"];
+        NSLog(@"%@", [formatter stringFromDate:testDate]);
+    };*/
+    
+//    [NSTimer scheduledTimerWithTimeInterval:0.25 repeats:YES block:myBlock ];
+//    NSDate *testDate = [NSDate dateWithTimeIntervalSinceNow:(-1 * (60 * 60 * 24 * 365 * 51))];
+    self.searchDate = [[NSDate alloc] initWithTimeIntervalSinceNow:(-1 * (60 * 60 * 24 * 365 * 50))];
+//    for (id student in self.mutableStudents) {
+//        self.student = student;
+        self.index = 0;
+    self.student = [self.mutableStudents objectAtIndex:self.index];
+//    for (int index = 0; index < [self.mutableStudents count]; index++ ) {
+//        if (index < [self.mutableStudents count]) {
+//            self.searchDate = [[NSDate alloc] initWithTimeIntervalSinceNow:(-1 * (60 * 60 * 24 * 365 * 51))];
+            //now we do some method for serchDate of birth!!!!!!!
+//        YKStudent *student = [[YKStudent alloc] init];
+//    int index = 0;
+//        self.student = [self.mutableStudents objectAtIndex:index];
+    
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:0.25 target:self selector:@selector(timerTest) userInfo:nil repeats:YES];
+//            [self performSelector:@selector(timerTest)];
+//            [self performSelector:@selector(timerTest:) withObject: self.student];
+//    [self performSelector:@selector(sometimerTest)];
+//    index++;
+//    self.student = [self.mutableStudents objectAtIndex:index];
+//        }
+    
+//        [self.timer invalidate];
+//    }
+    
+//    self.timer = nil;
+    NSLog(@"TEST FINISH");
     return YES;
+}
+
+-(void)timerTest {
+//    NSLog(@"index = %d", self.index);
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd.MMM.YYYY"];
+    for (; self.index < [self.mutableStudents count]; self.index++) {
+        self.student = [self.mutableStudents objectAtIndex:self.index];
+        
+//сравниваем ДР студента с текущей даой потом переходим к след студенту и так их всех прогоняем по каждому дню
+            if ([[formatter stringFromDate:self.searchDate] isEqualToString:[formatter stringFromDate:self.student.dateOfBirth]]) {
+                NSLog(@"%@ \n ~~~~~~ Happy Birthday! ~~~~~~ \n date: %@", self.student, [formatter stringFromDate:self.searchDate]);
+                if ([self.student isEqual:[self.mutableStudents objectAtIndex:[self.mutableStudents count] - 1]]) {
+                    [self.timer invalidate];
+                    self.timer = nil;
+                    NSLog(@"TIMER INVALIDATED by last student Birthday");
+//                    break;
+                }
+            }
+        
+//        self.index++;
+            if ([self.student isEqual:[self.mutableStudents objectAtIndex:[self.mutableStudents count] - 1]]) {
+                self.searchDate = [NSDate dateWithTimeInterval:(60 * 60 * 24) sinceDate:self.searchDate];
+                self.index = 0;
+            }
+        }
+    }
+
+//сделать метод от таймера который посто будет пробегать день за днем и который будет дергать студента и спрашивать сегодня у тя ДР?
+-(void)timerTest:(YKStudent *)student {
+//-(void)timerTest {
+    NSDate *testDate = [NSDate dateWithTimeIntervalSinceNow:(-1 * (60 * 60 * 24 * 365 * 51))];
+//    for (NSDate *testDate = [NSDate dateWithTimeIntervalSinceNow:(-1 * (60 * 60 * 24 * 365 * 51))]; testDate <= student.dateOfBirth; ) {
+    do  { //(![testDate isEqual:[NSDate date]])
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd.MMM.YYYY"];
+        
+        
+//        if ([testDate isEqual: student.dateOfBirth]) {
+        if ([[formatter stringFromDate:testDate] isEqual: [formatter stringFromDate:student.dateOfBirth]]) {
+            NSLog(@"%@", [formatter stringFromDate:testDate]);
+            NSLog(@"%@\n~~~~~~~~~~~~~~~~~~~~~~\nHAPPY BIRTHDAY!!!\n~~~~~~~~~~~~~~~~~~~~~~\n", student);
+            
+            if (student == [self.mutableStudents objectAtIndex:[self.mutableStudents count] - 1]) {
+                [self.timer invalidate];
+            }
+            
+            break;
+        }
+        
+        testDate = [NSDate dateWithTimeInterval:(60 * 60 * 24) sinceDate:testDate];
+
+    } while (![testDate isEqual:[NSDate date]]);
+     
+//        if ([testDate isEqual:[NSDate date]]) {
+//            [self.timer invalidate];
+//            continue; //break;
+//        }
+    
+//    }
 }
 
 
