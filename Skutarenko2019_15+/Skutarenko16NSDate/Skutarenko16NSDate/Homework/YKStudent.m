@@ -15,7 +15,7 @@
     self = [super init];
     if (self) {
         self.name = [self setName];
-        self.name = [self setLastName];
+        self.lastName = [self setLastName];
     }
     return self;
 }
